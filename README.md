@@ -1,2 +1,2 @@
 # codewars
-completed code wars practice 
+This is where I save my completed codewars practice, and store my codewars work. 

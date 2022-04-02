@@ -29,3 +29,48 @@ return strArr.join('');
    
 
 removeChar("testString")
+
+// Your Job
+// Find the sum of all multiples of n below m
+
+// Keep in Mind
+// n and m are natural numbers (positive integers)
+// m is excluded from the multiples
+
+
+function sumMul(n,m){
+//declare the variables we are using and tracking
+   let total = 0
+   let num = n
+//if invalid inputs return invalid
+   if(n >= m){
+     return "INVALID"
+   }
+   else{
+      while(n < m){
+      //add num to total
+      total += num;
+      //add num to itself
+      n += n
+      console.log(n)
+      console.log(num)
+      console.log(total)
+   }
+   return total
+      }
+   }
+
+
+   console.log(sumMul(2, 9))
+
+
+
+
+   // Write a function to split a string and convert it into an array of words.
+
+
+function stringToArray(string){
+
+   return string.split(' ')
+      
+   }

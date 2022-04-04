@@ -93,8 +93,55 @@ function stringToArray(string){
       return finalAnswerArr.sort().join('');
     }
 
-    let a = "xyaabbbccccdefww"
+   //  let a = "xyaabbbccccdefww"
 
-    let b = "xxxxyyyyabklmopq"
+   //  let b = "xxxxyyyyabklmopq"
 
-    longest(a, b)
+   //  console.log(longest("rjerawrkjearhiw", "reujwiaaj"))
+
+
+
+   // Given a string made of digits [0-9], return a string where each digit is repeated a number of times equals to its value.
+
+
+
+   // function explode(s) {
+   //    //turn string into an array of each number
+   //   let arrayString = parseInt(s.split(''));
+   //   //iterate through array, index in the array take the item in the array and and check nested if else statement i guess? 
+   // console.log(arrayString)
+   //  }
+
+
+   //  explode("0432120")
+
+
+   //  function toFreud(string) {
+   //    let arrayOfStrings = string.split(' ');
+   //    let sexString = arrayOfStrings.forEach(item => item = "sex");
+   //    console.log(sexString)
+   //  }
+
+   //  toFreud("this is a test")
+
+
+//    You get any card as an argument. Your task is to return the suit of this card (in lowercase).
+
+// Our deck (is preloaded):
+
+deck = ['2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣','A♣',
+        '2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦','A♦',
+        '2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥','A♥',
+        '2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠','A♠'];
+
+        function defineSuit(card) {
+         if(card.includes("♣") === true){
+            return "clubs"
+         }else if(card.includes("♦") === true){
+            return "diamonds"
+         }else if(card.includes("♥") === true){
+            return "hearts"
+         }else{
+            return "spades"
+         }
+       }

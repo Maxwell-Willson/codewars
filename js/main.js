@@ -61,7 +61,7 @@ function sumMul(n,m){
    }
 
 
-   console.log(sumMul(2, 9))
+   // console.log(sumMul(2, 9))
 
 
 
@@ -145,3 +145,71 @@ deck = ['2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','
             return "spades"
          }
        }
+
+//  For every good kata idea there seem to be quite a few bad ones!
+
+//  In this kata you need to check the provided array (x) for good ideas 'good' and bad ideas 'bad'.
+//  If there are one or two good ideas, return 'Publish!', if there are more than 2 return 'I smell a series!'.
+//  If there are no good ideas, as is often the case, return 'Fail!'
+
+
+function well(x){
+let filteredGoodArray = x.filter( item => item === 'good')
+if (filteredGoodArray.length === 1 || filteredGoodArray.length === 2){
+   return 'Publish!'
+} else if (filteredGoodArray.length > 2){
+   return 'I smell a series!'
+}else{
+   return 'Fail!'
+}
+}
+
+// well(['good', 'bad', 'bad', 'bad', 'bad', 'good', 'bad', 'bad', 'good'])
+
+
+// This time no story, no theory. The examples below show you how to write function accum:
+
+// Examples:
+// accum("abcd") -> "A-Bb-Ccc-Dddd"
+// accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt") -> "C-Ww-Aaa-Tttt"
+// The parameter of accum is a string which includes only letters from a..z and A..Z.
+
+
+function accum(s) {
+	// first split the string into an array to be better manageable.
+   let stringToArray = s.toUpperCase().split('')
+   console.log(stringToArray)
+   //iterate through the array, each iteration is going to print an incrementing array and produce a string, map?  
+   let mumbleArray = stringToArray.map(function(item, index){
+      if(index === 0){
+         return item
+      }else {
+         let totalItem = item
+         for(let i = 0; i < index; i++){
+         totalItem += item.toLowerCase()
+         }
+         return totalItem
+      }
+   }
+   )
+   return mumbleArray.join('-')
+}
+
+
+// accum("RqaEzty")
+
+
+// As a part of this Kata, you need to create a function that when provided with a triplet, returns the index of the numerical element that lies between the other two elements.
+
+// The input to the function will be an array of three distinct numbers (Haskell: a tuple).
+
+// For example:
+
+// gimme([2, 3, 1]) => 0
+// 2 is the number that fits between 1 and 3 and the index of 2 in the input array is 0.
+
+// Another example (just to make sure it is clear):
+
+// gimme([5, 10, 14]) => 1
+// 10 is the number that fits between 5 and 14 and the index of 10 in the input array is 1.

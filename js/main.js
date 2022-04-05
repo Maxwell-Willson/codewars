@@ -15,7 +15,7 @@ const Ball = function(ballType) { ballType === undefined ? this.ballType = "regu
 
    };
 
-//    Description:
+// 3.   Description:
 //    It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string.
 //     You're given one parameter, the original string. You don't have to worry with strings with less than two characters.
 
@@ -30,7 +30,7 @@ return strArr.join('');
 
 removeChar("testString")
 
-// Your Job
+//4. Your Job
 // Find the sum of all multiples of n below m
 
 // Keep in Mind
@@ -66,7 +66,7 @@ function sumMul(n,m){
 
 
 
-   // Write a function to split a string and convert it into an array of words.
+   // 5. Write a function to split a string and convert it into an array of words.
 
 
 function stringToArray(string){
@@ -76,7 +76,7 @@ function stringToArray(string){
    }
 
 
-   //Take 2 strings s1 and s2 including only letters from ato z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2
+// 6. Take 2 strings s1 and s2 including only letters from ato z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2
 
 
    function longest(s1, s2) {
@@ -101,7 +101,7 @@ function stringToArray(string){
 
 
 
-   // Given a string made of digits [0-9], return a string where each digit is repeated a number of times equals to its value.
+   //7. Given a string made of digits [0-9], return a string where each digit is repeated a number of times equals to its value.
 
 
 
@@ -116,16 +116,8 @@ function stringToArray(string){
    //  explode("0432120")
 
 
-   //  function toFreud(string) {
-   //    let arrayOfStrings = string.split(' ');
-   //    let sexString = arrayOfStrings.forEach(item => item = "sex");
-   //    console.log(sexString)
-   //  }
 
-   //  toFreud("this is a test")
-
-
-//    You get any card as an argument. Your task is to return the suit of this card (in lowercase).
+// 8. You get any card as an argument. Your task is to return the suit of this card (in lowercase).
 
 // Our deck (is preloaded):
 
@@ -146,7 +138,7 @@ deck = ['2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','
          }
        }
 
-//  For every good kata idea there seem to be quite a few bad ones!
+//9.  For every good kata idea there seem to be quite a few bad ones!
 
 //  In this kata you need to check the provided array (x) for good ideas 'good' and bad ideas 'bad'.
 //  If there are one or two good ideas, return 'Publish!', if there are more than 2 return 'I smell a series!'.
@@ -167,7 +159,7 @@ if (filteredGoodArray.length === 1 || filteredGoodArray.length === 2){
 // well(['good', 'bad', 'bad', 'bad', 'bad', 'good', 'bad', 'bad', 'good'])
 
 
-// This time no story, no theory. The examples below show you how to write function accum:
+// 10. This time no story, no theory. The examples below show you how to write function accum:
 
 // Examples:
 // accum("abcd") -> "A-Bb-Ccc-Dddd"
@@ -200,7 +192,7 @@ function accum(s) {
 // accum("RqaEzty")
 
 
-// As a part of this Kata, you need to create a function that when provided with a triplet, returns the index of the numerical element that lies between the other two elements.
+//11.  As a part of this Kata, you need to create a function that when provided with a triplet, returns the index of the numerical element that lies between the other two elements.
 
 // The input to the function will be an array of three distinct numbers (Haskell: a tuple).
 
@@ -213,3 +205,64 @@ function accum(s) {
 
 // gimme([5, 10, 14]) => 1
 // 10 is the number that fits between 5 and 14 and the index of 10 in the input array is 1.
+
+
+
+
+//12.  Rock Paper Scissors
+// Let's play! You have to return which player won! In case of a draw return Draw!.
+
+// Examples:
+
+// rps('scissors','paper') // Player 1 won!
+// rps('scissors','rock') // Player 2 won!
+// rps('paper','paper') // Draw!
+
+
+const rps = (p1, p2) => {
+   //three outcomes so do an if, if else, else statement. Starting with P1 wins
+   if ( (p1 === 'rock' && p2 === 'scissors') || (p1 === 'paper' && p2 === 'rock') || (p1 === 'scissors' && p2 === 'paper') ){
+      return "Player 1 won!"
+   } //player 2 wins outcome 
+   else if ( (p2 === 'rock' && p1 === 'scissors') || (p2 === 'paper' && p1 === 'rock') || (p2 === 'scissors' && p1 === 'paper')){
+      return "Player 2 won!"
+   }// draw outcome
+   else{
+      return "Draw!"
+   }
+};
+
+// 13. Write a function called repeatStr which repeats the given string string exactly n times.
+
+// repeatStr(6, "I") // "IIIIII"
+// repeatStr(5, "Hello") // "HelloHelloHelloHelloHello"
+
+function repeatStr (n, s) {
+   let combinedStr = ''
+   for (let i = 0; i < n; i++){
+     combinedStr += s
+   }
+   return combinedStr
+ }
+
+
+
+// 14.  In John's car the GPS records every s seconds the distance travelled from an origin (distances are measured in an arbitrary but consistent unit).
+// For example, below is part of a record with s = 15:
+
+// x = [0.0, 0.19, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25]
+// The sections are:
+
+// 0.0-0.19, 0.19-0.5, 0.5-0.75, 0.75-1.0, 1.0-1.25, 1.25-1.50, 1.5-1.75, 1.75-2.0, 2.0-2.25
+// We can calculate John's average hourly speed on every section and we get:
+
+// [45.6, 74.4, 60.0, 60.0, 60.0, 60.0, 60.0, 60.0, 60.0]
+// Given s and x the task is to return as an integer the *floor* of the maximum average speed per hour obtained on the sections of x. If x length is less than or equal to 1 return 0 since the car didn't move.
+
+// Example:
+// with the above data your function gps(s, x)should return 74
+
+// Note
+// With floats it can happen that results depends on the operations order. To calculate hourly speed you can use:
+
+// (3600 * delta_distance) / s.

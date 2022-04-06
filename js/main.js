@@ -303,5 +303,33 @@ function insertDash(num){
   }
 
 
+// console.log(insertDash(5802979));
 
-console.log(insertDash(5802979));
+
+
+// Complete the solution so that it returns true if the first argument(string) passed in
+// ends with the 2nd argument (also a string).
+
+// Examples:
+
+// solution('abc', 'bc') //returns true
+// solution('abc', 'd')  //returns false
+
+function solution(str, ending){
+   if(ending === ''){
+      return true
+   }
+   else{
+   //find length of ending
+   let lenOfEnd = ending.length
+   //turn str into an array to be able to better manage it
+   let arrayOfStr = str.split('');
+   //slice the last of the length off of str
+   let sliceOfEndAmt = arrayOfStr.slice(-(lenOfEnd))
+   let testingEquality = sliceOfEndAmt.join('')
+   return testingEquality === ending ? true : false
+   }
+ }
+
+solution('abc', 'bc')
+solution('abc', 'd')

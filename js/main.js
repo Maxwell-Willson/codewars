@@ -266,3 +266,42 @@ function repeatStr (n, s) {
 // With floats it can happen that results depends on the operations order. To calculate hourly speed you can use:
 
 // (3600 * delta_distance) / s.
+
+// function gps(s, x) {
+//    // your code
+// }
+
+
+// 15. Write a function insert_dash(num) / insertDash(num) / InsertDash(int num) that will insert dashes ('-') between each two odd digits in num. 
+// For example: if num is 454793 the output should be 4547-9-3. Don't count zero as an odd digit.
+
+// Note that the number will always be non-negative (>= 0).
+
+function insertDash(num){
+   //split into an array to work on each number indivdually have to turn the number into a string, to split it up into an array, then convert the elements back into a number
+   let arrayNum = num.toString().split('').map(element => parseInt(element))
+   //where we will store the index where dashses need to be added
+   let finalAnswerArray = []
+  //loop through elements
+  for(let i = 0; i <= arrayNum.length - 1; i++){
+     // -> ID when two elements next to each other are odd, excluding last value in an array
+    if(arrayNum[i] % 2 !== 0 && arrayNum[i+1] % 2 !== 0){
+      //if ID'd correctly push the number and then a dash
+      finalAnswerArray.push(arrayNum[i], '-')
+      }
+   else{
+      //if not IDed as both odd push the normal number
+      finalAnswerArray.push(arrayNum[i])
+   }
+   }
+   //remove dash from end if its an odd number
+  if(finalAnswerArray[finalAnswerArray.length - 1] === '-'){
+     finalAnswerArray.pop()
+  }
+  return finalAnswerArray.join('')
+ 
+  }
+
+
+
+console.log(insertDash(5802979));

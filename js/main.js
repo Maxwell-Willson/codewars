@@ -307,7 +307,7 @@ function insertDash(num){
 
 
 
-// Complete the solution so that it returns true if the first argument(string) passed in
+//16. Complete the solution so that it returns true if the first argument(string) passed in
 // ends with the 2nd argument (also a string).
 
 // Examples:
@@ -331,5 +331,18 @@ function solution(str, ending){
    }
  }
 
-solution('abc', 'bc')
-solution('abc', 'd')
+// solution('abc', 'bc')
+// solution('abc', 'd')
+
+
+//17. Given an array of integers, return a new array with each value doubled.
+
+// For example:
+
+// [1, 2, 3] --> [2, 4, 6]
+
+
+function maps(x){
+   return x.map(element => element * 2)
+   }
+ 

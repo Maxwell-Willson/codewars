@@ -345,4 +345,59 @@ function solution(str, ending){
 function maps(x){
    return x.map(element => element * 2)
    }
- 
+
+
+// 18.   Implement the method indexOf (index_of in PHP), which accepts a linked list (head) and a value,
+//  and returns the index (zero based) of the first occurrence of that value if exists, or -1 otherwise.
+
+// For example: Given the list: 1 -> 2 -> 3 -> 3, and the value 3, indexOf / index_of should return 2.
+
+// The linked list is defined as follows:
+
+// function Node(data, next = null) {
+//   this.data = data;
+//   this.next = next;
+// }
+
+// function indexOf(head, value) {
+//    return -1;
+//  }
+
+// 19.
+
+// The BOPE is the squad of special forces of police that usually handle
+// the operations in the Favelas in Rio de Janeiro.
+
+// In this Kata you have to write a function that determine the number o
+// f magazines that every soldier has to have in his bag.
+
+// You will receive the weapon and the number of streets that they have
+//  to cross. Considering that every street the officer shoots 3 times. Bellow there is the relation of weapons:
+
+// PT92 - 17 bullets
+// M4A1 - 30 bullets
+// M16A2 - 30 bullets
+// PSG1 - 5 bullets
+
+// Example:
+
+// ["PT92", 6] => 2 (6 streets 3 bullets each)
+// ["M4A1", 6] => 1
+
+// The return Will always be an integer so as the params.
+
+
+function magNumber(info){
+  
+}
+
+
+
+// 20. Write a function that returns a string in which firstname is swapped with last name.
+
+// nameShuffler('john McClane'); => "McClane john"
+
+function nameShuffler(str){
+   return str.split(' ').reverse().join(' ')
+
+ }

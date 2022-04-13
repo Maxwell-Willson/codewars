@@ -616,4 +616,4 @@ function solutionSumMultiplesFiveOrThree(number){
   return finalAnswer
 }
 
-solutionSumMultiplesFiveOrThree(10)
+// solutionSumMultiplesFiveOrThree(10)

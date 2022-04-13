@@ -422,3 +422,198 @@ function nameShuffler(str){
      return `${a}${b}${a}`
    }
  }
+
+//  22. #To square(root) or not to square(root)
+
+//  Write a method, that will get an integer array as parameter and will process 
+//  every number from this array.
+//  Return a new array with processing every number of the input-array like this:
+ 
+//  If the number has an integer square root, take this, otherwise square the number.
+ 
+//  [4,3,9,7,2,1] -> [2,9,3,49,4,1]
+//  The input array will always contain only positive numbers and will never be empty
+//   or null.
+ 
+//  The input array should not be modified!
+ 
+//  Have fun coding it and please don't forget to vote and rank this kata! :-)
+ 
+//  I have also created other katas. Take a look if you enjoyed this kata!
+
+function squareOrSquareRoot(array) {
+   let finalArray = array.map(function(element, index, array){
+      if(Math.sqrt(element) === Math.floor(Math.sqrt(element))){
+         return Math.sqrt(element)
+      }else{
+         return element * element
+      }
+   })
+   return finalArray
+ }
+
+
+// 23.  Create a function that takes an array of letters, and combines them into words in a sentence.
+
+// The array will be formatted as so:
+
+// [['J','L','L','M']
+// ,['u','i','i','a']
+// ,['s','v','f','n']
+// ,['t','e','e','']]
+// The function should combine all the 0th indexed letters to create the word 'just',
+//  all the 1st indexed letters to create the word 'live', etc.
+
+// Shorter words will have an empty string in the place once the word has already been
+//  mapped out (see the last element in the last element in the array).
+
+// Examples:
+
+// arrAdder([
+// ['J','L','L','M'],
+// ['u','i','i','a'],
+// ['s','v','f','n'],
+// ['t','e','e','']
+// ]) // => "Just Live Life Man"
+
+// arrAdder([ 
+//   [ 'T', 'M', 'i', 't', 'p', 'o', 't', 'c' ],
+//   [ 'h', 'i', 's', 'h', 'o', 'f', 'h', 'e' ],
+//   [ 'e', 't', '', 'e', 'w', '', 'e', 'l' ],
+//   [ '', 'o', '', '', 'e', '', '', 'l' ],
+//   [ '', 'c', '', '', 'r', '', '', '' ],
+//   [ '', 'h', '', '', 'h', '', '', '' ],
+//   [ '', 'o', '', '', 'o', '', '', '' ],
+//   [ '', 'n', '', '', 'u', '', '', '' ],
+//   [ '', 'd', '', '', 's', '', '', '' ],
+//   [ '', 'r', '', '', 'e', '', '', '' ],
+//   [ '', 'i', '', '', '', '', '', '' ],
+//   [ '', 'a', '', '', '', '', '', '' ] ]) // => "The Mitochondria is the powerhouse of the cell
+
+
+// function arrAdder(arr) {
+
+// //find the first array where arrPosition is null, this will eventually be looped to go through each value of //lenOfSentance above
+// let loopCounter = 0
+// let arrWordAcum = []
+// //loop through the length of the sentance by looking at arr[0]'s length
+// for(let i = 0; i <= arr[0].length - 1; i++){
+// let indexExecuteAt = 0
+//    function completeAWord(indexOfLetters){ 
+      
+//       while(arr[loopCounter][indexOfLetters] !== ''){
+//          arrWordAcum.push(arr[loopCounter][0]);
+//          loopCounter++;
+//          console.log(arrWordAcum.join(''))
+//          return arrWordAcum.join('')
+//       } 
+//    }
+
+// }
+// //once a null has been found, slice the array into a new value, ending at null index position -1
+// // function arrOfSingleWord {
+
+
+// // //Take values from the new sliced array, where the value you pull is from the wordPosition[i], loop through new sliced array until end of array once, concatinating all of word one.
+
+
+
+// // //store finished word one in finalSentance value, ensuring spaces are present when needed.
+// // }
+
+// //return final answer 
+
+// }
+
+
+// arrAdder([ 
+//   [ 'T', 'M', 'i', 't', 'p', 'o', 't', 'c' ],
+//   [ 'h', 'i', 's', 'h', 'o', 'f', 'h', 'e' ],
+//   [ 'e', 't', '', 'e', 'w', '', 'e', 'l' ],
+//   [ '', 'o', '', '', 'e', '', '', 'l' ],
+//   [ '', 'c', '', '', 'r', '', '', '' ],
+//   [ '', 'h', '', '', 'h', '', '', '' ],
+//   [ '', 'o', '', '', 'o', '', '', '' ],
+//   [ '', 'n', '', '', 'u', '', '', '' ],
+//   [ '', 'd', '', '', 's', '', '', '' ],
+//   [ '', 'r', '', '', 'e', '', '', '' ],
+//   [ '', 'i', '', '', '', '', '', '' ],
+//   [ '', 'a', '', '', '', '', '', '' ] ])
+
+// //24. Create a function that accepts a list/array and a number n, 
+// and returns a list/array of the first n elements from the list/array.
+
+// If you need help, here's a reference:
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+function take(arr, n) {
+   return arr.slice(0, n)
+ }
+ 
+
+
+//  25. Count the number of Duplicates
+//  Write a function that will return the count of distinct case-insensitive
+//   alphabetic characters and numeric digits that occur more than once in the input
+//    string. The input string can be assumed to contain only alphabets 
+//    (both uppercase and lowercase) and numeric digits.
+ 
+//  Example
+//  "abcde" -> 0 # no characters repeats more than once
+//  "aabbcde" -> 2 # 'a' and 'b'
+//  "aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
+//  "indivisibility" -> 1 # 'i' occurs six times
+//  "Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
+//  "aA11" -> 2 # 'a' and '1'
+//  "ABBA" -> 2 # 'A' and 'B' each occur twice
+
+function duplicateCount(text){
+ //final value that will be returned
+ let finalValue = 0
+ //convert the text into an array, force it to lower case, then sort it to get all like character next to each other
+let arrayOfText = text.toLowerCase().split('').sort()
+//make a new array of the unique values
+let arrayOfUnique = arrayOfText.filter((value, index) =>  arrayOfText.indexOf(value) === index)
+//loop through unique values, find the index of first, and index of second value of each unique value, loop until unique values is exhausted
+for(let i = 0; i <= arrayOfUnique.length - 1; i++){
+if(arrayOfText.indexOf(arrayOfUnique[i]) !== arrayOfText.lastIndexOf(arrayOfUnique[i])){
+finalValue++
+}
+}
+return finalValue
+ }
+
+
+// duplicateCount("Indivisibilities")
+
+
+// 26. If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
+//  The sum of these multiples is 23.
+
+// Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+//  Additionally, if the number is negative, return 0 (for languages that do have them).
+
+// Note: If the number is a multiple of both 3 and 5, only count it once.
+
+// Courtesy of projecteuler.net (Problem 1)
+
+function solutionSumMultiplesFiveOrThree(number){
+  //make variables we are using
+  let arrayOfAllNums = []
+  let finalAnswer = 0
+    //populate an array with every value less then the passed in number
+  for(let i = 1; i < number; i++){
+     arrayOfAllNums.push(i)
+  }
+  //loop through new array, if the value in the array is divisible by 3 or 5 add it to the total
+  arrayOfAllNums.forEach(function(item){
+     if(item % 3 === 0 || item % 5 === 0){
+        console.log(item)
+        finalAnswer += item
+     }
+  })
+  return finalAnswer
+}
+
+solutionSumMultiplesFiveOrThree(10)

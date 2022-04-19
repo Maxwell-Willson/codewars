@@ -657,3 +657,112 @@ function testEven(n) {
   wordArray[0] = wordArray[0].toUpperCase()
   return wordArray.join('')
  }
+
+// 29.  Create a function that takes 2 integers in form of a string as an input, and outputs the sum (also as a string):
+
+//  Example: (Input1, Input2 -->Output)
+ 
+//  "4",  "5" --> "9"
+//  "34", "5" --> "39"
+//  "", "" --> "0"
+//  "2", "" --> "2"
+//  "-5", "3" --> "-2"
+//  Notes:
+ 
+//  If either input is an empty string, consider it as zero.
+ 
+//  Inputs and the expected output will never exceed the signed 32-bit integer limit (2^31 - 1)
+
+ function sumStr(a,b) {
+   return String(Number(a)+Number(b));
+ }
+
+
+//  Task
+// You are given a moment in time and space. What you must do is break it down into time and space, to determine if that moment is from the past, present or future.
+
+// Time is the sum of characters that increase time (i.e. numbers in range ['1'..'9'].
+
+// Space in the number of characters which do not increase time (i.e. all characters but those that increase time).
+
+// The moment of time is determined as follows:
+
+// If time is greater than space, then the moment is from the future.
+//  If time is less than space, then the moment is from the past. Otherwise, it is the present moment.
+
+// You should return an array of three elements, two of which are false, and one is true.
+//  The true value should be at the 1st, 2nd or 3rd place for past, present and future respectively.
+
+// Examples
+// For moment = "01:00 pm", the output should be [true, false, false].
+
+// time equals 1, and space equals 7, so the moment is from the past.
+
+// For moment = "12:02 pm", the output should be [false, true, false].
+
+// time equals 5, and space equals 5, which means that it's a present moment.
+
+// For moment = "12:30 pm", the output should be [false, false, true].
+
+// time equals 6, space equals 5, so the moment is from the future.
+
+// Input/Output
+// [input] string moment
+// The moment of time and space that the input time came from.
+
+// [output] a boolean array
+// Array of three elements, two of which are false, and one is true. The true value should be at the 1st, 2nd or 3rd place for past, present and future respectively.
+
+
+function momentOfTimeInSpace(moment) {
+   //decalre variables used
+   let fullNumArray = [];
+   let spaceCounter = 0;
+   //convert the string into an array, make sure all numbers are convereted to actual numbers
+   let arraySniff = moment.split('');
+   // loop through the arraySniff and convert all numbers into values, and anything thats not a number into NaN
+   for(let i = 0; i <= arraySniff.length - 1; i++){
+      fullNumArray.push(parseInt(arraySniff[i]))
+   }
+   // filter NaNs out of the array returning an array of only numbers
+   let onlyNumArray = fullNumArray.filter(element => Number(element) === element);
+   //remove 0s and increment spaceCounter
+   for(let i = 0; i <= arraySniff.length - 1; i++)
+   console.log(fullNumArray);
+   console.log(onlyNumArray);
+   // sum the array of only numbers
+   // let sumOfNums = onlyNumArray.reduce((sum, current) => sum + current, 0)
+   // //determine number of NaN values, subtract length of fullNumArray by onlyNumArray
+   // let notNumbers = fullNumArray.length - onlyNumArray.length
+   //three way decider answer
+   // if(notNumbers === sumOfNums){
+   //    return [false, true, false]
+   // }else if(notNumbers < sumOfNums){
+   //    return [false, false, true]
+   // }else{
+   //    return [true, false, false]
+   // }
+ }
+
+//  function momentOfTimeInSpace(moment) {
+//    //decalre variables used
+//    let fullNumArray = [];
+//    //convert the string into an array, make sure all numbers are convereted to actual numbers
+//    let arraySniff = moment.split('');
+//    // loop through the arraySniff and convert all numbers into values, and anything thats not a number into NaN
+//    for(let i = 0; i <= arraySniff.length - 1; i++){
+//       fullNumArray.push(parseInt(arraySniff[i]))
+//    }
+//    // filter NaNs out of the array returning an array of only numbers
+//    let onlyNumArray = fullNumArray.filter(element => Number(element) === element)
+//    // sum the array of only numbers
+//    let sumOfNums = onlyNumArray.reduce((sum, current) => sum + current, 0)
+//    //determine number of NaN values, subtract length of fullNumArray by onlyNumArray
+//    let notNumbers = fullNumArray.length - onlyNumArray.length
+//    //three way decider answer
+
+//    }
+//  }
+
+
+ momentOfTimeInSpace("12:02 pm")

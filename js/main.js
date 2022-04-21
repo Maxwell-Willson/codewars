@@ -678,7 +678,7 @@ function testEven(n) {
  }
 
 
-//  Task
+//30.  Task
 // You are given a moment in time and space. What you must do is break it down into time and space, to determine if that moment is from the past, present or future.
 
 // Time is the sum of characters that increase time (i.e. numbers in range ['1'..'9'].
@@ -765,4 +765,57 @@ function momentOfTimeInSpace(moment) {
 //  }
 
 
- momentOfTimeInSpace("12:02 pm")
+//  momentOfTimeInSpace("12:02 pm")
+
+
+// 31. Complete the function that takes a non-negative integer n as input, and returns a list of all the powers of 2 with the exponent ranging from 0 to n ( inclusive ).
+
+// Examples
+// n = 0  ==> [1]        # [2^0]
+// n = 1  ==> [1, 2]     # [2^0, 2^1]
+// n = 2  ==> [1, 2, 4]  # [2^0, 2^1, 2^2]
+
+ function powersOfTwo(n){
+   let arrayFinal = []
+   let multiplyer = 2
+   let arrayOfExp = []
+   for (let i = 0; i <= n; i++){
+     arrayOfExp.push(i)
+   }
+    arrayOfExp.forEach(element => arrayFinal.push(multiplyer ** element))
+    return arrayFinal
+ }
+
+//  powersOfTwo(2)
+
+
+// A Narcissistic Number is a number of length n in which the sum of its digits to the power of n is equal to the original number.
+//  If this seems confusing, refer to the example below.
+
+// Ex: 153, where n = 3 (number of digits in 153)
+// 1^3 + 5^3 + 3^3 = 153
+
+// Write a method is_narcissistic(i) (in Haskell: isNarcissistic :: Integer -> Bool) which returns whether or not i is a Narcissistic Number.
+
+
+function isNarcissistic(n){
+   //use length of number as the exponent
+   let stringOfNum = `${n}`
+   let sumOfDigitsRaisedN = 0
+   //turn number into an array of numbers
+   let arrayOfDigits = stringOfNum.split('')
+   let arrayOfIntDigits = arrayOfDigits.map(element => parseInt(element))
+   //loop through array and square each number, probably reduce? 
+   for(let i = 0; i <= arrayOfIntDigits.length - 1; i++){
+   iterationOfLoop = arrayOfIntDigits[i] ** stringOfNum.length
+   sumOfDigitsRaisedN += iterationOfLoop
+   }
+   if(sumOfDigitsRaisedN === n){
+      return true
+   } else{
+      return false
+   }
+ }
+
+
+ isNarcissistic(153)

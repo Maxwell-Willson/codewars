@@ -789,7 +789,7 @@ function momentOfTimeInSpace(moment) {
 //  powersOfTwo(2)
 
 
-// A Narcissistic Number is a number of length n in which the sum of its digits to the power of n is equal to the original number.
+//32.  A Narcissistic Number is a number of length n in which the sum of its digits to the power of n is equal to the original number.
 //  If this seems confusing, refer to the example below.
 
 // Ex: 153, where n = 3 (number of digits in 153)
@@ -818,4 +818,156 @@ function isNarcissistic(n){
  }
 
 
- isNarcissistic(153)
+//  isNarcissistic(153)
+
+
+//33. In this Kata, you will be given a string and your task will be to return a list of ints detailing the count of uppercase letters,
+//  lowercase, numbers and special characters, as follows.
+
+// Solve("*'&ABCDabcde12345") = [4,5,5,3]. 
+// --the order is: uppercase letters, lowercase, numbers and special characters.
+// More examples in the test cases.
+
+// Good luck!
+
+
+
+
+// function solve(s){
+//    //..//make variables that iterarte each time something is found
+//    let lowerCaseCounter = 0
+//    let upperCaseCounter = 0
+//    let numCounter = 0
+//    let speialCounter = 0
+//    //split the incoming string into an array to better play with.
+//    let arrayOfItems = s.split('')
+//    // Maybe map into a new array, check if value is a number and convert it to a number.
+
+// let numConvertedArray = arrayOfItems.map(function (element){
+//    if(Number(element) === element){
+//       return Number(element)
+//    }
+
+// }
+
+// )
+// }
+// console.log(numConvertedArray)
+//    //nested if else with 4 options, one for each option of character in a string ---need array first
+  
+
+
+//   solve("*'&ABCDabcde12345");
+
+
+//34. In this simple exercise, you will create a program that will take two lists of integers, a and b. 
+// Each list will consist of 3 positive integers above 0, representing the dimensions of cuboids a and b. 
+// You must find the difference of the cuboids' volumes regardless of which is bigger.
+
+// For example, if the parameters passed are ([2, 2, 3], [5, 4, 1]), the volume of a is 12 and the volume of b is 20. Therefore, the function should return 8.
+
+// Your function will be tested with pre-made examples as well as random ones.
+
+// If you can, try writing it in one line of code.
+
+function findDifference(a, b) {
+   let volumeA = a.reduce((multiplier, current) => multiplier * current, 1)
+   let volumeB = b.reduce((multiplier, current) => multiplier * current, 1)
+
+   return Math.abs(volumeA - volumeB)
+ }
+
+ findDifference([2, 2, 3], [5, 4, 1])
+
+//  //35. Remove an exclamation mark from the end of a string.
+//   For a beginner kata, you can assume that the input data is always a string, no need to verify it.
+
+// Examples
+// remove("Hi!") === "Hi"
+// remove("Hi!!!") === "Hi!!"
+// remove("!Hi") === "!Hi"
+// remove("!Hi!") === "!Hi"
+// remove("Hi! Hi!") === "Hi! Hi"
+// remove("Hi") === "Hi"
+
+function remove (string) {
+   if(string[string.length - 1] === '!') {
+      let noExclAtEnd = string.split('');
+      noExclAtEnd.pop();
+      return noExclAtEnd.join('')
+   }
+   else{
+      return string
+   }
+ }
+
+//  remove("Hi!")
+
+// 36. Consider the word "abode". We can see that the letter a is in position 1 and b is in position 
+// 2. In the alphabet, a and b are also in positions 1 and 2. Notice also that d and e in abode occupy the positions they would occupy in the alphabet, 
+// which are positions 4 and 5.
+
+// Given an array of words, return an array of the number of letters that occupy their positions in the alphabet for each word. For example,
+
+// solve(["abode","ABc","xyzD"]) = [4, 3, 1]
+// See test cases for more examples.
+
+// Input will consist of alphabet characters, both uppercase and lowercase. No spaces.
+
+// Good luck!
+
+function solve(arr){  
+   //set up alphabet array to compare to
+   let alphabetArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 
+'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+   let counterOfMatch = 0
+   let arrayFinal = []
+
+//map array, split each string in arrays plit the given array into strings of each word and  force to lower case
+   let arrOfArrsLowerCase = arr.map(function (element){
+      return element.toLowerCase().split('')
+   })
+//loop through new array, then looop through the array of arrays to check if deeply equal to
+   for(let i = 0; i < arr.length; i++){
+      for(let j = 0; j < arrOfArrsLowerCase[i].length; j++){
+         console.log(arrOfArrsLowerCase[i][j])
+         if (arrOfArrsLowerCase[i][j] === alphabetArray[j]){
+            counterOfMatch++
+         }
+   
+      }
+      arrayFinal.push(counterOfMatch)
+      counterOfMatch = 0
+   }
+   return arrayFinal
+   };
+
+   // solve(["abode","ABc","xyzD"])
+
+
+   // 37.
+//    An array is defined to be odd-heavy if it contains 
+//    at least one odd element and every element whose value is odd is
+//     greater than every even-valued element.
+
+// eg.
+
+// Array [11,4,9,2,8] is odd-heavy 
+// because:- its odd elements [11,9] are greater than all the even elements [4,2,8]
+
+// Array [11,4,9,2,3,10] is not odd-heav 
+// because:- one of it's even element 10 from [4,2,10] is greater than two of its odd elements [9,3] from [ 11,9,3]
+// write a function called isOddHeavy or is_odd_heavy that accepts an integer array and returns true if the array is odd-heavy else return false.
+
+function isOddHeavy(n){
+   //filter all even and all odd numbers into two seperate arrays
+   let oddNum = n.filter(num => num % 2 !== 0);
+   let evenNum = n.filter(num => (num % 2) === 0);
+   //sort both arrays from lowest to highest value
+   oddNum.sort((a, b) => a - b);
+   evenNum.sort((a, b) => a - b);
+   return (oddNum[0] > evenNum[evenNum.length - 1] ? true : false) 
+ }
+
+
+ isOddHeavy([11,4,9,2,8,0,0,0,0,0,0,0,0])

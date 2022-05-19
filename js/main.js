@@ -971,3 +971,253 @@ function isOddHeavy(n){
 
 
  isOddHeavy([11,4,9,2,8,0,0,0,0,0,0,0,0])
+
+
+
+//  38. Make multiple functions that will
+//   return the sum, difference, modulus, product, quotient, and the exponent 
+//   respectively.
+
+// Please use the following function names:
+
+// addition = add
+
+// multiply = multiply
+
+// division = divide (both integer and float divisions are accepted)
+
+// modulus = mod
+
+// exponential = exponent
+
+// subtraction = subt
+
+// Note: All math operations will be: a (operation) b
+
+
+function add(a,b){
+   let x = a + b
+   return x
+}
+
+function divide(a,b){
+   let x = a / b
+   return x
+}
+
+function multiply(a,b){
+   let x = a * b
+   return  x
+}
+
+function mod(a,b){
+   let x = a % b
+   return x
+}
+  
+function exponent(a,b){
+   let x = a ** b
+   return x
+}
+
+
+function subt(a,b){
+     let x = a - b
+     return x
+   }
+
+
+
+   //39. Finish the solution so that it sorts the passed in array of numbers.
+   //  If the function passes in an empty array or null/nil value then it should return an empty array.
+
+   // For example:
+   
+   // solution([1, 2, 10, 50, 5]); // should return [1,2,5,10,50]
+   // solution(null); // should return []
+
+   function solution(nums){
+      if(nums === null){
+         return []
+      }else{
+         let x = nums.sort((a,b) => a - b)
+         return x
+      }
+   }
+
+//   console.log(solution([1,2,3,10,5]))
+
+
+//40. Return the number (count) of vowels in the given string.
+
+// We will consider a, e, i, o, u as vowels for this Kata (but not y).
+
+// The input string will only consist of lower case letters and/or spaces.
+
+// function getCount(str) {
+//    let vowelsCount = 0;
+   
+//    let vowelsArr = ['a', 'e', 'i', 'o', 'u']
+//    let arrOfStr = str.split('')
+//    let testStuff = vowelsArr.find('e')
+//    console.log(vowelsCount)
+
+//    arrOfStr.forEach(function(item) {
+//       if(vowelsArr.find(item2 => item2 === 'a' || item2 === 'b' || item2 === 'c'){
+//          vowelsCount++
+//       }
+//     })
+
+//  }
+
+
+// getCount('abracadabra')
+
+// 41. Define a method hello that returns "Hello, Name!" to a given name, or says
+//  Hello, World! if name is not given (or passed as an empty String).
+
+// Assuming that name is a String and it checks for
+//  user typos to return a name with a first capital letter (Xxxx).
+
+// Examples:
+
+// * With `name` = "john"  => return "Hello, John!"
+// * With `name` = "aliCE" => return "Hello, Alice!"
+// * With `name` not given 
+//   or `name` = ""        => return "Hello, World!"
+
+
+
+function hello(name) {
+   if(name === ''){
+      return "Hello, World!"
+   }else{
+      let firstLetter = name[0].toUpperCase()
+      let restOfName = name.slice(1).toLowerCase()
+      let fullName = firstLetter + restOfName
+      console.log(fullName)
+      return `Hello, ${fullName}!`
+   }
+}
+
+// hello('JoHnNNnn');
+
+
+// 42.
+
+// write me a function stringy that takes a size and returns a string of alternating '1s' and '0s'.
+
+// the string should start with a 1.
+
+// a string with size 6 should return :'101010'.
+
+// with size 4 should return : '1010'.
+
+// with size 12 should return : '101010101010'.
+
+// The size will always be positive and will only use whole numbers.
+
+
+
+
+function stringy(size) {
+   let stringyArray = []
+   for (let i = 1; i <= size; i++){
+   if(stringyArray.length === 0 || stringyArray[stringyArray.length - 1] === 0){
+      stringyArray.push(1)
+   }else{
+      stringyArray.push(0)
+   }
+   }
+   return stringyArray.join('');
+}
+
+stringy(49)
+
+// Task
+// You have a string of length n consisting of zeroes and ones. Consider the following operation:
+
+// Choose any two adjacent positions in the string
+// If one of them is 0, and the other one is 1, 
+// remove these two digits from the string.
+// What is the length of the smallest string that you can get after applying this operation multiple times?
+
+// Example
+// For s = "01010", the result should be 1.
+
+// "01010" -> " 010" -> " 0"
+
+// For s = "110100", the result should be 2.
+
+// "110100" -> "1 100" -> "1 0"
+
+// Note that after the operations, the remaining digits are separated by spaces and thus not adjacent ;-)
+
+// Input/Output
+// [input] string s
+// The initial string.
+
+// [output] an integer
+// The minimum length of the string that may remain after applying the described operations several times.
+
+function zeroAndOne(s) {
+   //coding and coding..
+   return 0;
+ }
+
+
+ //44.
+
+//  Given an array of integers.
+
+// Return an array, where the first element is the count of positives
+//  numbers and the second element is sum of negative numbers. 0 is neither positive nor negative.
+
+// If the input is an empty array or is null, return an empty array.
+
+// Example
+// For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], you should return [10, -65].
+
+function countPositivesSumNegatives(input) {
+   let posCounter = 0
+   let negCounter = 0
+   for(let i = 0; i < input.length; i++){
+      if(input[i === 0]){
+         
+      }
+      else if (input[i] > 0){
+         posCounter++
+      } else{
+         negCounter += input[i]
+      }
+
+   }
+   let answer = [posCounter, negCounter]
+   return answer
+}
+
+// Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order.
+//  Essentially, rearrange the digits to create the highest possible number.
+
+// Examples:
+// Input: 42145 Output: 54421
+
+// Input: 145263 Output: 654321
+
+// Input: 123456789 Output: 987654321
+
+function descendingOrder(n){
+   let arrayN = n.toString().split('')
+   let arrOfNum = []
+   let concat = ''
+   arrayN.forEach(str => {
+      arrOfNum.push(Number(str));
+   })
+   arrOfNum.sort((a,b) => b - a)
+   for (let i = 0; i < arrOfNum.length; i++){
+      concat += arrOfNum[i]
+   }
+   return Number(concat)
+ }
+
+ descendingOrder(123456789)

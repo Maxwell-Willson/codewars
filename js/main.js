@@ -1272,3 +1272,100 @@ return(dontGiveFiveArr.length)
 // dontGiveMeFive(1,9)
 
 
+
+// Given an input of an array of digits, return the array with each digit incremented by its position in the array: 
+// the first digit will be incremented by 1, the second digit by 2, etc. Make sure to start counting your positions from 1 ( and not 0 ).
+
+// Your result can only contain single digit numbers, so if adding a digit with its position gives you a multiple-digit number,
+//  only the last digit of the number should be returned.
+
+// Notes:
+// return an empty array if your array is empty
+// arrays will only contain numbers so don't worry about checking that
+// Examples:
+// [1, 2, 3]  -->  [2, 4, 6]   #  [1+1, 2+2, 3+3]
+
+// [4, 6, 9, 1, 3]  -->  [5, 8, 2, 5, 8]  #  [4+1, 6+2, 9+3, 1+4, 3+5]
+//                                        #  9+3 = 12  -->  2
+
+function incrementer(nums) {
+   let finalArray = []
+   let numsPlusIndex = nums.map((item, index) => item + (index + 1));
+
+   let arrOfNumsPlusIndex = numsPlusIndex.map(item => item.toString().split(''))
+
+
+   for (let i = 0; i < arrOfNumsPlusIndex.length; i++){
+      finalArray.push(Number(arrOfNumsPlusIndex[i][arrOfNumsPlusIndex[i].length - 1]))
+
+   }
+   return finalArray
+ }
+
+//  incrementer([4, 6, 9, 1, 3, 8, 43]);
+
+// Introduction
+// Digital Cypher assigns to each letter of the alphabet unique number. For example:
+
+//  a  b  c  d  e  f  g  h  i  j  k  l  m
+//  1  2  3  4  5  6  7  8  9 10 11 12 13
+//  n  o  p  q  r  s  t  u  v  w  x  y  z
+// 14 15 16 17 18 19 20 21 22 23 24 25 26
+// Instead of letters in encrypted word we write the corresponding number, eg. The word scout:
+
+//  s  c  o  u  t
+// 19  3 15 21 20
+// Then we add to each obtained digit consecutive digits from the key. For example. In case of key equal to 1939 :
+
+//    s  c  o  u  t
+//   19  3 15 21 20
+//  + 1  9  3  9  1
+//  ---------------
+//   20 12 18 30 21
+  
+//    m  a  s  t  e  r  p  i  e  c  e
+//   13  1 19 20  5 18 16  9  5  3  5
+// +  1  9  3  9  1  9  3  9  1  9  3
+//   --------------------------------
+//   14 10 22 29  6 27 19 18  6  12 8
+// Task
+// Write a function that accepts str string and key number and returns an array of integers representing encoded str.
+
+// Input / Output
+// The str input string consists of lowercase characters only.
+// The key input number is a positive integer.
+
+// Example
+// Encode("scout",1939);  ==>  [ 20, 12, 18, 30, 21]
+// Encode("masterpiece",1939);  ==>  [ 14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8]
+
+
+function encode(str, n)
+{  
+   let finalCode = []
+
+   //set up a constant alphaValue with a dummy value in 0 so the index matches value
+ const alphaValue = ['dummy','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+   //split code into an array of the code
+ const codeValue = n.toString().split('').map(v => Number(v));
+   //split the incoming string into an array
+ const arrOfInput = str.split('');
+   //figure out number of runs for internal loop-get mod of codeValue length into arrOfInput length
+const numOfExtra = arrOfInput.length % codeValue.length;
+const numOfRunsBeforeRepeat = (Math.floor(arrOfInput.length / codeValue.length))
+let arrOfInputCounter = 0
+for(let j = 0; j < numOfRunsBeforeRepeat; j++){
+   for(let i = 0; i < codeValue.length; i++){
+      finalCode.push((codeValue[i] + alphaValue.indexOf(arrOfInput[arrOfInputCounter])));
+      arrOfInputCounter++;
+   }
+}
+for(let k = 0; k < numOfExtra; k++){
+   finalCode.push((codeValue[k] + alphaValue.indexOf(arrOfInput[arrOfInputCounter])));
+   arrOfInputCounter++;
+}
+
+   return finalCode
+}
+
+// encode("masterpiece",1939);

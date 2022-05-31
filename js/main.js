@@ -1369,3 +1369,190 @@ for(let k = 0; k < numOfExtra; k++){
 }
 
 // encode("masterpiece",1939);
+
+
+
+// We have the first value of a certain sequence, we will name it initVal. We define pattern list, patternL
+// , an array that has the differences between contiguous terms of the sequence. E.g: patternL = [k1, k2, k3, k4]
+
+// The terms of the sequence will be such values that:
+
+// term1 = initVal
+// term2 - term1 = k1
+// term3 - term2 = k2
+// term4 - term3 = k3
+// term5 - term4 = k4
+// term6 - term5 = k1
+// term7 - term6 = k2
+// term8 - term7 = k3
+// term9 - term8 = k4
+// ....  - ..... = ...
+// ....  - ..... = ...
+// So the values of the differences between contiguous terms are cyclical and are repeated as the differences values of the pattern list stablishes.
+
+// Let's see an example with numbers:
+
+// initVal = 10
+// patternL = [2, 1, 3]
+// term1 = 10
+// term2 = 12
+// term3 = 13
+// term4 = 16
+// term5 = 18
+// term6 = 19
+// term7 = 22  # and so on...
+// We can easily obtain the next terms of the sequence following the values in the pattern list. We see that the sixth term of the sequence, 19, has the sum of its digits 10.
+
+// Make a function sumDig_nthTerm(), that receives three arguments in this order
+
+// sumDig_nthTerm(initVal, patternL, nthTerm(ordinal number of the term in the sequence))
+
+// This function will output the sum of the digits of the n-th term of the sequence.
+
+// Let's see some cases for this function:
+
+// sumDig_nthTerm(10, [2, 1, 3], 6) -----> 10 # because the sixth term is 19 sum of Dig = 1 + 9 = 10. The sequence up to the sixth-Term is: 10, 12, 13, 16, 18, 19
+
+// sumDig_nthTerm(10, [1, 2, 3], 15) ----> 10 # 37 is the 15-th term, and 3 + 7 = 10
+// Enjoy it and happy coding!!
+
+
+function sumDigNthTerm(initval, patternl, nthterm) {
+
+   //set first value of the full term array to be manipulated by later loops
+let arrayOfFullTerms = [initval]
+
+   //outer-most loop that decides how many reps before hitting nth term
+while(arrayOfFullTerms.length < nthterm){
+   //internal loop through the pattern patternl[i]
+   for(let i = 0; i < patternl.length; i++){
+      initval += patternl[i];
+      arrayOfFullTerms.push(initval);
+   }
+}
+let arrayOfFinalNum = arrayOfFullTerms[nthterm - 1].toString().split('').map(v => Number(v))
+
+return arrayOfFinalNum.reduce((sum, current) => sum + current, 0);
+}
+
+// sumDigNthTerm(10, [1, 2, 3], 15)
+
+
+// We need a function prime_bef_aft() that gives the largest prime below a certain given value n,
+
+// befPrime or bef_prime (depending on the language),
+
+// and the smallest prime larger than this value,
+
+// aftPrime/aft_prime (depending on the language).
+
+// The result should be output in a list like the following:
+
+// primeBefAft == [befPrime, aftPrime]
+// If n is a prime number it will give two primes, n will not be included in the result.
+
+// Let's see some cases:
+
+// primeBefAft(100) == [97, 101]
+
+// primeBefAft(97) == [89, 101]
+
+// primeBefAft(101) == [97, 103]
+// Range for the random tests: 1000 <= n <= 200000
+
+// (The extreme and special case n = 2 will not be considered for the tests. Thanks Blind4Basics)
+
+// Happy coding!!
+
+
+function primeBefAft(num) {
+   finalAnswer = []
+   checkPrime = false
+   //check if each number below given number is prime
+   //make an array of every number below given number except for 1 and 0 and the number itself 
+   //run each value in the array through a forEach method that checks if value is prime: return boolean true if prime, false if not prime
+   // if true exists in array
+   //move to next number, loop until hitting 2, stop at and return first value that is prime to an array named finalAnswer.
+   
+
+
+
+   //check at above 1, do same return first value equal to or higher then num that is prime. Add values to an array named finalAnswer
+}
+
+
+
+
+// Who remembers back to their time in the schoolyard, when girls would take a flower and tear its petals, saying each of the following phrases each time a petal was torn:
+
+// I love you
+// a little
+// a lot
+// passionately
+// madly
+// not at all
+// When the last petal was torn there were cries of excitement, dreams, surging thoughts and emotions.
+
+// Your goal in this kata is to determine which phrase the girls would say for a flower of a given number of petals, where nb_petals > 0.
+
+function howMuchILoveYou(nbPetals) {
+   //make array of answers
+   answerArray = ['I love you', 'a little', 'a lot', 'passionately', 'madly', 'not at all']
+   //nbPetals mod 6 should give the result we want yeah?
+   answerKey = (nbPetals % 6) - 1
+   return answerArray[answerKey]
+}
+
+
+
+// Your task is to sum the differences between consecutive pairs in the array in descending order.
+
+// Example
+// [2, 1, 10]  -->  9
+// In descending order: [10, 2, 1]
+
+// Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9
+
+// If the array is empty or the array has only one element the result should be 0 (Nothing in Haskell, None in Rust).
+
+
+function sumOfDifferences(arr) {
+   let arrSumOfResults = []
+   //if array length is 0 or 1 return 0 else do logic
+   if(arr.length <= 1){
+      return 0
+   }
+   //rest of the logic
+   else{
+   //sort the array highest to lowest
+   arr = arr.sort((a,b) => b - a)
+   //loop through length of array, not conducting the funtion on the last value of the array, push new values to sum to a new array arrSumOfResults(initialize array at start)
+   for(let i = 0; i < (arr.length - 1); i++){
+      //subtract i by i+1 in the array
+      arrSumOfResults.push(arr[i] - arr[i + 1])
+   } 
+   }
+//return the reduced value summing all of the arrSumOfResults
+return arrSumOfResults.reduce((sum, current) => sum + current, 0);
+}
+
+// sumOfDifferences([2, 1, 10])
+
+
+// Given a string of words (x), you need to return an array of the words, sorted alphabetically by the final character in each.
+
+// If two words have the same last letter, they returned array should show them in the order they appeared in the given string.
+
+// All inputs will be valid.
+
+function last(x){
+//split the string into an array (arrWord)
+let arrWord = x.split(' ');
+//find the length of each word, ensure these values are captured in a new array (lenWord)
+let lenWord = arrWord.map(item => item.length);
+//sort arrWord based off of the last value in each word
+arrWord.sort((a, b) => a.charAt(a.length - 1) - b.charAt(b.length - 1))
+console.log(arrWord);
+console.log(lenWord);
+}
+last('man i need a taxi up to ubud')

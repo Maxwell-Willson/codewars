@@ -1545,14 +1545,34 @@ return arrSumOfResults.reduce((sum, current) => sum + current, 0);
 
 // All inputs will be valid.
 
-function last(x){
-//split the string into an array (arrWord)
-let arrWord = x.split(' ');
-//find the length of each word, ensure these values are captured in a new array (lenWord)
-let lenWord = arrWord.map(item => item.length);
-//sort arrWord based off of the last value in each word
-arrWord.sort((a, b) => a.charAt(a.length - 1) - b.charAt(b.length - 1))
-console.log(arrWord);
-console.log(lenWord);
+// function last(x){
+// //split the string into an array (arrWord)
+// let arrWord = x.split(' ');
+// //find the length of each word, ensure these values are captured in a new array (lenWord)
+// let lenWord = arrWord.map(item => item.length);
+// //sort arrWord based off of the last value in each word
+// arrWord.sort((a, b) => a.charAt(a.length - 1) - b.charAt(b.length - 1))
+// console.log(arrWord);
+// console.log(lenWord);
+// }
+// last('man i need a taxi up to ubud')
+
+
+// Given a string of digits, you should replace any digit below 5 with '0'
+//  and any digit 5 and above with '1'. Return the resulting string.
+
+// Note: input will never be an empty string
+
+function fakeBin(x){
+let arr = x.toString().split('').map(v => Number(v))
+let arrFakeBin = arr.map(function(item){
+   if(item < 5){
+     return 0
+   }else{
+     return 1
+   }
+})
+return arrFakeBin.join('')
 }
-last('man i need a taxi up to ubud')
+
+fakeBin('45385593107843568')
